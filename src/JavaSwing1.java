@@ -3,6 +3,7 @@ import PagG12.Hub;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.http.WebSocket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -38,6 +39,8 @@ public class JavaSwing1 extends JFrame{
     private JLabel Prioridad;
     private JPanel JPanel;
     private JPanel JpanelOperaciones;
+    private JButton PesoTotal;
+
 
     private Hub hub = new Hub();
 
@@ -199,8 +202,18 @@ public class JavaSwing1 extends JFrame{
                 }
             }
         });
+
+        PesoTotal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JOptionPane.showMessageDialog(null,"Peso: " + hub.toString() ); // No se poner el peso
+            }
+        });
     }
     private void mostrarEstadoHub(){
         textAreaEstado.setText(hub.toString());
     }
+
+
 }
